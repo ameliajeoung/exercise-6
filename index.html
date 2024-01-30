@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6</title>
+    <style>
+        body{
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           
+        }
+        h4{
+            font-size: 48pt;
+        }
+        #surprise{
+            background-color: #adddd3;
+            color: rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 15px 22px;
+            border: none;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 12pt;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main">
+    <h4 id="hi">helloooooooo</h4>
+    </div>  
+
+    <div class="element">
+        <button id="surprise">click for a surprise</button>
+    </div>
+
+    <script>
+        var colors = ["#66de86", "#d8bae6", "#e6bb10"];
+
+        function change() {
+
+            var randomIndex = Math.floor(Math.random() * colors.length);
+
+            var selectedColor = colors[randomIndex];
+
+            document.getElementById("hi").style.color = selectedColor;
+        }
+
+        setInterval(change, 200);
+
+        document.addEventListener('mousemove', function(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+
+            var red = Math.round((x / width) * 255);
+            var blue = Math.round((y / height) * 255);
+
+            document.body.style.backgroundColor = `rgb(${red}, 100, ${blue})`;
+        });
+
+        document.getElementById('surprise').addEventListener('click', function() {
+            let hiElement = document.getElementById('hi');
+            hiElement.style.display = 'none';
+        });
+    </script>
+    
+</body>
+</html>
